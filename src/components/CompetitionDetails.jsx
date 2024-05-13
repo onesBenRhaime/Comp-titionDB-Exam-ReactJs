@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import competitions from "./Competition.json";
 import AddPlayer from "./AddPlayer";
+import { useSelector } from "react-redux";
 function CompetitionDetails() {
 	const { id } = useParams();
 
+	const competitions = useSelector((state) => state.data.data);
 	const [competition, setCompetition] = useState({});
 	const [list, setList] = useState([]);
 	const [show, setShow] = useState(false);
@@ -16,6 +17,9 @@ function CompetitionDetails() {
 		setCompetition(c);
 	}, [id]);
 
+	const handleParticipantAdded = () => {
+		setShow(false);
+	};
 	return (
 		<Container className="mt-5 py-5 m-5">
 			<Card>
@@ -62,6 +66,7 @@ function CompetitionDetails() {
 				<AddPlayer
 					competitionId={competition.id}
 					participantsList={competition.participantsList}
+					onParticipantAdded={handleParticipantAdded}
 				/>
 			) : (
 				<Card>

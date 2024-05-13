@@ -8,7 +8,7 @@ export default function NavigationBar() {
 				<ul>
 					<li>
 						<a className="navbar-brand" href="#">
-							Movies DB
+							ExamDB
 						</a>
 					</li>
 					<li>

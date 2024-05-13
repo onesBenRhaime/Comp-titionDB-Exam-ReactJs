@@ -1,11 +1,12 @@
 import { useFormik } from "formik";
 import { Button, Form } from "react-bootstrap";
-import { add, update } from "../services/eventServices";
 import { useDispatch, useSelector } from "react-redux";
-import { addEvent, updateEvent } from "../redux/actions";
+import { updateData } from "../redux/actions";
+import { update } from "../services/serviceData";
+import { useNavigate } from "react-router-dom";
 
-function AddPlayer({ competitionId, participantsList }) {
-	const competitions = useSelector((state) => state.event.events);
+function AddPlayer({ competitionId, participantsList, onParticipantAdded }) {
+	const competitions = useSelector((state) => state.data.data);
 	const dispatch = useDispatch();
 
 	const f = useFormik({
@@ -13,16 +14,23 @@ function AddPlayer({ competitionId, participantsList }) {
 			name: "",
 		},
 		onSubmit: async (values) => {
-			console.log(values);
 			if (!participantsList.includes(values.name)) {
 				participantsList.push(values.name);
-				console.log(participantsList);
+				const d = competitions.find(
+					(competition) => competition.id === competitionId
+				);
+				const updaredData = {
+					name: d.name,
+					fees: d.fees,
+					date: d.date,
+					description: d.description,
+					participantsList: participantsList,
+					participants: d.participants - 1,
+				};
 
-				console.log(competitionId);
-
-				const result = await update(competitionId, participantsList);
-				console.log(result.data);
-				dispatch(updateEvent(result.data));
+				const result = await update(competitionId, updaredData);
+				dispatch(updateData(result));
+				onParticipantAdded();
 			} else {
 				window.alert("Username already exists!");
 			}

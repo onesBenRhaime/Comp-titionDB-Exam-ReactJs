@@ -1,22 +1,21 @@
 import { Container } from "react-bootstrap";
-import competitions from "./Competition.json";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { get } from "../services/eventServices";
-import { getEvents } from "../redux/actions";
 import Competition from "./Competition";
+import { get } from "../services/serviceData";
+import { getData } from "../redux/actions";
 export default function Competitions() {
-	const competition = useSelector((state) => state.event.events);
+	const competitions = useSelector((state) => state.data.data);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		fetchEvents();
-		console.log(competition);
+		fetchData();
+		console.log(competitions);
 	}, []);
 
-	const fetchEvents = async () => {
+	const fetchData = async () => {
 		try {
 			const result = await get();
-			dispatch(getEvents(result.data));
+			dispatch(getData(result.data));
 		} catch (error) {
 			console.log(error);
 		}

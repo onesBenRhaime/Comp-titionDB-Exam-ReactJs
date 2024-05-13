@@ -1,45 +1,18 @@
 {
-  "events": [
-    {
-      "id": 1,
-      "name": "Festival international de Carthage",
-      "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page",
-      "img": "event1.jpg",
-      "price": 30,
-      "nbTickets": 10,
-      "nbParticipants": 10,
-      "like": false
-    },
-    {
-      "id": 2,
-      "name": "Festival de la médina de Tunis",
-      "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page",
-      "img": "event2.jpg",
-      "price": 15,
-      "nbTickets": 4,
-      "nbParticipants": 30,
-      "like": false
-    },
-    {
-      "name": "event 3",
-      "description": "event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3event 3",
-      "price": 6,
-      "nbTickets": 6,
-      "img": "event3.jpg",
-      "nbParticipants": 0,
-      "like": false,
-      "id": 3
-    }
-  ],
   "Competitions": [
     {
-      "participants": null,
+      "name": "Meet & Greet",
+      "fees": "30",
+      "date": "01/04/2023",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae consectetur earum distinctio culpa voluptatum eum ad laboriosam qui, dolore repudiandae cupiditate rerum optio eius.Doloribus numquam velit veritatis quisquam magnam.",
       "participantsList": [
-        "ones",
-        "meriem",
-        "dfsdfsdf",
-        "dfsdfsdfjjmjmj"
+        "nader",
+        "dszdzdzdz",
+        "cscscsc",
+        "dzsxwzsx",
+        "salajhahja"
       ],
+      "participants": 7,
       "id": "1"
     },
     {
